@@ -39,18 +39,18 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
     <div className="relative z-10 h-full flex flex-col overflow-hidden">
       {/* ====== SCROLLING LYRICS STRIP ====== */}
       <div
-        className="absolute right-16 top-0 bottom-0 w-64 z-[1] overflow-hidden pointer-events-none opacity-[0.22]"
+        className="absolute right-[30%] top-0 bottom-0 w-72 z-[1] overflow-hidden pointer-events-none opacity-[0.3]"
         style={{ transform: "rotate(-8deg)", transformOrigin: "top center" }}
       >
         <div
-          className="flex flex-col gap-7"
+          className="flex flex-col gap-8"
           style={{ animation: "scroll-lyrics 40s linear infinite" }}
         >
           {/* Duplicate lyrics twice for seamless loop */}
           {[...lyricsLines, ...lyricsLines].map((line, i) => (
             <p
               key={i}
-              className="font-serif italic text-cream text-2xl leading-snug whitespace-nowrap"
+              className="font-serif italic text-cream text-3xl leading-snug whitespace-nowrap"
             >
               {line}
             </p>
