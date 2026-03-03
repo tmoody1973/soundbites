@@ -4,9 +4,11 @@
 
 **Goal:** Build a single-page interactive experience for the Radio Milwaukee Soundbites event — hero view with animated modals, audio player, and PWA offline support, deployed to Vercel and served on an iPad.
 
-**Architecture:** Next.js App Router with static export. One page (`/`) renders a full-viewport hero with four tap-target cards. Each card opens a full-screen Framer Motion modal. A persistent audio player bar is fixed to the bottom. A service worker caches all assets for offline use.
+**Architecture:** Next.js App Router with static export. One page (`/`) renders a full-viewport hero with four tap-target cards. Each card uses Framer Motion `layoutId` shared layout animations to smoothly expand into full-screen detail views (Aceternity expandable card pattern). A persistent audio player bar is fixed to the bottom. A service worker caches all assets for offline use. Wake Lock API keeps the iPad screen on during the event.
 
 **Tech Stack:** Next.js 15 (App Router, static export), Framer Motion 11, Tailwind CSS 4, TypeScript
+
+**UI Pattern:** Aceternity expandable card — cards use `layoutId` for shared layout animation between collapsed (grid card) and expanded (full-screen detail) states. See https://ui.aceternity.com/components/expandable-card
 
 ---
 
