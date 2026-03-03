@@ -39,8 +39,8 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
     <div className="relative z-10 h-full flex flex-col overflow-hidden">
       {/* ====== SCROLLING LYRICS STRIP ====== */}
       <div
-        className="absolute right-2 top-0 bottom-0 w-64 z-[1] overflow-hidden pointer-events-none opacity-[0.22]"
-        style={{ transform: "rotate(-8deg)", transformOrigin: "top right" }}
+        className="absolute right-16 top-0 bottom-0 w-64 z-[1] overflow-hidden pointer-events-none opacity-[0.22]"
+        style={{ transform: "rotate(-8deg)", transformOrigin: "top center" }}
       >
         <div
           className="flex flex-col gap-7"
@@ -76,35 +76,41 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       {/* ====== CONTENT ====== */}
       <div className="relative z-10 flex flex-col h-full px-7 pt-5 pb-28">
 
-        {/* TOP ROW: Event label + album art */}
+        {/* TOP ROW: Event label */}
         <motion.div
-          className="flex items-start justify-between mb-auto"
+          className="mb-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <div>
-            <p className="text-[0.6rem] uppercase tracking-[0.3em] text-gold/70 font-sans font-medium">
-              Radio Milwaukee
-            </p>
-            <p className="text-[0.55rem] uppercase tracking-[0.2em] text-cream/40 font-sans mt-0.5">
-              Soundbites 2026
-            </p>
-          </div>
-          {/* Album art — top right corner */}
-          <div className="w-14 h-14 rounded-lg overflow-hidden border border-gold/20 shadow-lg">
-            <Image
-              src="/images/the-sisters-album.jpg"
-              alt="The Sisters"
-              width={56}
-              height={56}
-              className="object-cover w-full h-full"
-            />
-          </div>
+          <p className="text-[0.6rem] uppercase tracking-[0.3em] text-gold/70 font-sans font-medium">
+            Radio Milwaukee
+          </p>
+          <p className="text-[0.55rem] uppercase tracking-[0.2em] text-cream/40 font-sans mt-0.5">
+            Soundbites 2026
+          </p>
         </motion.div>
 
         {/* BOTTOM STACK: All key info */}
         <div className="mt-auto space-y-0">
+
+          {/* Album art above song title */}
+          <motion.div
+            className="mb-3"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+          >
+            <div className="w-20 h-20 rounded-xl overflow-hidden border border-gold/25 shadow-xl shadow-gold/10">
+              <Image
+                src="/images/the-sisters-album.jpg"
+                alt="The Sisters"
+                width={80}
+                height={80}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </motion.div>
 
           {/* Song title — large */}
           <motion.div
