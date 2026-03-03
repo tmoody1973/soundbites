@@ -11,7 +11,7 @@ const fadeUp = {
 export function ArtistModal() {
   return (
     <div className="space-y-5">
-      {/* Giant name header — Wrapped-style */}
+      {/* Giant name header */}
       <motion.div
         className="-mx-6 -mt-5 px-6 pt-6 pb-4 bg-gradient-to-b from-gold/[0.08] to-transparent"
         {...fadeUp}
@@ -26,78 +26,82 @@ export function ArtistModal() {
           Irvine
         </h2>
         <p className="text-base text-muted font-sans mt-2 font-light">
-          1943 &mdash; 2002
+          1943 &mdash; 2002 &middot; Hampton, Virginia
         </p>
       </motion.div>
 
-      {/* 3-column grid: portrait, B&W, album art — compact and balanced */}
+      {/* Two-column layout: photos left, bio right */}
       <motion.div
-        className="grid grid-cols-3 gap-2.5"
+        className="flex gap-4"
         {...fadeUp}
         transition={{ delay: 0.12 }}
       >
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/15">
-          <Image
-            src="/images/weldon-color.jpeg"
-            alt="Weldon Irvine"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/15">
-          <Image
-            src="/images/weldon-bw.webp"
-            alt="Weldon Irvine"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/20">
-          <Image
-            src="/images/the-sisters-album.jpg"
-            alt="The Sisters"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-black/60 to-transparent" />
-          <div className="absolute bottom-2 left-2 right-2">
-            <p className="text-[0.5rem] uppercase tracking-widest text-cream/80 font-sans font-medium leading-tight">
-              The Sisters
-            </p>
-            <p className="text-[0.45rem] text-cream/50 font-sans">1979</p>
+        {/* Left column — two photos stacked */}
+        <div className="w-[35%] flex-shrink-0 flex flex-col gap-2.5">
+          <div className="relative aspect-square rounded-xl overflow-hidden border border-gold/15">
+            <Image
+              src="/images/weldon-color.jpeg"
+              alt="Weldon Irvine"
+              fill
+              className="object-cover"
+            />
           </div>
+          <div className="relative aspect-square rounded-xl overflow-hidden border border-gold/15">
+            <Image
+              src="/images/weldon-bw.webp"
+              alt="Weldon Irvine"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Right column — bio */}
+        <div className="flex-1 font-body text-[0.85rem] leading-[1.7] text-cream/80 space-y-3">
+          <p className="font-serif text-lg text-gold-light font-bold italic leading-snug">
+            Nina Simone&apos;s bandleader. Co-writer of &ldquo;To Be Young,
+            Gifted and Black.&rdquo;
+          </p>
+          <p>
+            Weldon Irvine was a keyboardist, composer, poet, and playwright
+            whose career bridged jazz, funk, soul, and spoken word. Born in
+            Hampton, Virginia, he emerged from the same rich musical tradition
+            that produced Ella Fitzgerald and the Hampton Institute&apos;s legacy
+            of Black artistry.
+          </p>
+          <p>
+            In the early &apos;70s, he served as Nina Simone&apos;s musical
+            director and co-wrote what became an anthem of the Civil Rights
+            movement. He went on to release a string of visionary albums on RCA
+            and Strata-East that blended jazz improvisation with deep funk
+            grooves and poetic lyricism.
+          </p>
         </div>
       </motion.div>
 
-      {/* Bold pull quote */}
-      <motion.p
-        className="font-serif text-xl sm:text-2xl font-bold text-gold-light leading-snug italic"
-        {...fadeUp}
-        transition={{ delay: 0.2 }}
-      >
-        Nina Simone&apos;s bandleader.
-        <br />
-        <span className="text-cream/50">
-          Co-wrote &ldquo;To Be Young, Gifted and Black.&rdquo;
-        </span>
-      </motion.p>
-
-      {/* Bio — concise, two paragraphs */}
+      {/* Continued bio — full width */}
       <motion.div
-        className="font-body text-[0.95rem] leading-[1.75] text-cream/80 space-y-3"
+        className="font-body text-[0.85rem] leading-[1.7] text-cream/80 space-y-3"
         {...fadeUp}
-        transition={{ delay: 0.28 }}
+        transition={{ delay: 0.22 }}
       >
         <p>
-          His &apos;70s albums on RCA and Strata-East blended jazz, funk, and
-          soul into something entirely his own. A Tribe Called Quest, Mos Def,
-          and Common all studied at Weldon&apos;s feet.
+          His influence ran deep through hip-hop: A Tribe Called Quest, Mos Def,
+          Q-Tip, and Common all studied at Weldon&apos;s feet, sampling his
+          records and absorbing his philosophy of music as spiritual practice.
+          &ldquo;Morning Sunrise,&rdquo; from his album{" "}
+          <em className="text-citrus font-semibold">The Sisters</em> &mdash; a
+          collection of late-&apos;70s sessions featuring Don Blackman on vocals
+          and a young Marcus Miller on bass &mdash; captures everything that
+          made him essential: warm Rhodes chords, an unhurried groove, and a
+          melody that feels like sunlight.
         </p>
         <p>
-          &ldquo;Morning Sunrise&rdquo; from{" "}
-          <em className="text-citrus font-semibold">The Sisters</em> has been
-          sampled by Jay-Z, Drake, and countless others &mdash; ensuring his
-          warmth reverberates well beyond his years.
+          The track has since been sampled by Jay-Z, Drake, and countless others,
+          ensuring that Weldon&apos;s warmth reverberates well beyond his years.
+          He remains one of jazz-funk&apos;s most quietly towering figures
+          &mdash; a musician&apos;s musician whose fingerprints are all over the
+          music we love today.
         </p>
       </motion.div>
 
@@ -105,9 +109,9 @@ export function ArtistModal() {
       <motion.div
         className="flex flex-wrap gap-2"
         {...fadeUp}
-        transition={{ delay: 0.35 }}
+        transition={{ delay: 0.3 }}
       >
-        {["Jazz-Funk", "Soul", "Hampton, VA", "Keys", "Composer"].map(
+        {["Jazz-Funk", "Soul", "Keys", "Composer", "Poet", "Playwright"].map(
           (tag) => (
             <span
               key={tag}
