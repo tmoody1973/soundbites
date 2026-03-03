@@ -51,72 +51,65 @@ const lyricsBlocks = [
 
 export function LyricsModal() {
   return (
-    <div className="relative min-h-[60vh]">
+    <div className="relative">
       {/* Blurred album art background */}
       <div className="absolute inset-0 -z-10 overflow-hidden -mx-6 -mt-5">
         <Image
           src="/images/the-sisters-album.jpg"
           alt=""
           fill
-          className="object-cover blur-2xl scale-110 opacity-25"
+          className="object-cover blur-2xl scale-110 opacity-15"
         />
-        <div className="absolute inset-0 bg-warm-dark/60" />
+        <div className="absolute inset-0 bg-warm-dark/70" />
       </div>
 
-      {/* Album art thumbnail */}
+      {/* Giant song title header — Wrapped style */}
       <motion.div
-        className="flex justify-center pt-2 pb-5"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.05, duration: 0.4 }}
+        className="-mx-6 -mt-5 px-6 pt-5 pb-4"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05, duration: 0.5 }}
       >
-        <div className="w-24 h-24 rounded-xl overflow-hidden border border-gold/25 shadow-xl shadow-gold/10">
-          <Image
-            src="/images/the-sisters-album.jpg"
-            alt="The Sisters"
-            width={96}
-            height={96}
-            className="object-cover w-full h-full"
-          />
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 flex-shrink-0 rounded-lg overflow-hidden border border-gold/25 shadow-lg shadow-gold/10">
+            <Image
+              src="/images/the-sisters-album.jpg"
+              alt="The Sisters"
+              width={56}
+              height={56}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div>
+            <p className="font-serif text-2xl font-black text-cream-light leading-none">
+              Morning Sunrise
+            </p>
+            <p className="text-xs text-muted font-sans mt-1">
+              Weldon Irvine &mdash; <em>The Sisters</em>
+            </p>
+          </div>
         </div>
       </motion.div>
 
-      {/* Track info */}
-      <motion.div
-        className="text-center mb-6"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        <p className="text-[0.6rem] tracking-[0.3em] uppercase text-gold font-sans font-medium mb-1">
-          Morning Sunrise
-        </p>
-        <p className="text-xs text-muted font-sans">
-          Weldon Irvine &mdash; <em>The Sisters</em>
-        </p>
-      </motion.div>
+      {/* Thin divider */}
+      <div className="h-px bg-gradient-to-r from-gold/30 via-gold/15 to-transparent mb-5" />
 
-      {/* Gold divider */}
-      <div className="flex items-center gap-3 mb-6 mx-8">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-      </div>
-
-      {/* Lyrics */}
-      <div className="space-y-1 pb-4 text-center">
+      {/* Lyrics — tighter, more impactful */}
+      <div className="space-y-0.5 pb-4 text-center">
         {lyricsBlocks.map((block, i) => {
           if (block.type === "break") {
-            return <div key={i} className="h-6" />;
+            return <div key={i} className="h-4" />;
           }
           if (block.type === "section") {
             return (
               <motion.p
                 key={i}
-                className="text-[0.6rem] uppercase tracking-[0.3em] text-gold/60 font-sans font-medium pt-2 pb-1"
+                className="text-[0.5rem] uppercase tracking-[0.35em] text-gold/40 font-sans font-semibold pt-1 pb-0.5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 + i * 0.03 }}
+                transition={{ delay: 0.08 + i * 0.02 }}
               >
-                [{block.text}]
+                {block.text}
               </motion.p>
             );
           }
@@ -124,10 +117,10 @@ export function LyricsModal() {
             return (
               <motion.p
                 key={i}
-                className="font-body italic text-lg text-citrus/70 leading-relaxed"
-                initial={{ opacity: 0, y: 8 }}
+                className="font-serif italic text-lg text-citrus font-bold leading-snug"
+                initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.03 }}
+                transition={{ delay: 0.08 + i * 0.02 }}
               >
                 {block.text}
               </motion.p>
@@ -136,10 +129,10 @@ export function LyricsModal() {
           return (
             <motion.p
               key={i}
-              className="font-serif text-xl sm:text-2xl text-cream/90 font-medium leading-relaxed tracking-wide"
-              initial={{ opacity: 0, y: 8 }}
+              className="font-serif text-xl text-cream/90 font-medium leading-snug tracking-wide"
+              initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.03 }}
+              transition={{ delay: 0.08 + i * 0.02 }}
             >
               {block.text}
             </motion.p>

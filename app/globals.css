@@ -15,3 +15,12 @@
   --font-serif: var(--font-playfair);
   --font-body: var(--font-source-serif);
 }
+
+@keyframes scroll-lyrics {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

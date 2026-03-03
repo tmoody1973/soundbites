@@ -9,9 +9,55 @@ interface HeroViewProps {
   onOpenModal: (modal: ModalType) => void;
 }
 
+const lyricsLines = [
+  "Morning sunrise!",
+  "Morning sunrise!",
+  "Hello, morning, you look good, good to me",
+  "Kissing the sky, I can feel it move me",
+  "But on my own I would share this morning",
+  "Kiss the sunrise with my eyes",
+  "Morning sunrise",
+  "I said it\u2019s a beautiful morning sunrise",
+  "If I ever heard you say, yeah",
+  "Ooh, ooh",
+  "Yeah, aah",
+  "Morning sunrise!",
+  "Flowers will bloom in the spring, it seems like",
+  "Everything nature has bring, could it be so?",
+  "Life will go on, so they say, and it will",
+  "Bring on another day",
+  "Another morning sunrise",
+  "Morning sunrise",
+  "I said it\u2019s a beautiful morning sunrise",
+  "Morning, morning sunrise",
+  "Yeah",
+  "Morning sunrise!",
+];
+
 export function HeroView({ onOpenModal }: HeroViewProps) {
   return (
     <div className="relative z-10 h-full flex flex-col overflow-hidden">
+      {/* ====== SCROLLING LYRICS STRIP ====== */}
+      <div
+        className="absolute right-4 top-0 bottom-0 w-48 z-[1] overflow-hidden pointer-events-none opacity-[0.07]"
+        style={{ transform: "rotate(-8deg)", transformOrigin: "top right" }}
+      >
+        <div
+          className="flex flex-col gap-6"
+          style={{ animation: "scroll-lyrics 40s linear infinite" }}
+        >
+          {/* Duplicate lyrics twice for seamless loop */}
+          {[...lyricsLines, ...lyricsLines].map((line, i) => (
+            <p
+              key={i}
+              className="font-serif italic text-cream text-lg leading-snug whitespace-nowrap"
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+      </div>
+
       {/* ====== FULL-BLEED ARTIST PHOTO ====== */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -110,15 +156,23 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             of the track&apos;s rhythm section.
           </motion.p>
 
-          {/* Chef credit */}
-          <motion.p
-            className="text-xs text-muted font-sans mb-5"
+          {/* Chef credit — prominent */}
+          <motion.div
+            className="mb-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            Chef Dane Baldwin &middot; The Diplomat, Milwaukee
-          </motion.p>
+            <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
+              The Chef
+            </p>
+            <p className="font-serif text-lg text-cream/80 font-bold">
+              Dane Baldwin
+            </p>
+            <p className="text-sm text-cream/45 font-sans">
+              The Diplomat &middot; Milwaukee
+            </p>
+          </motion.div>
 
           {/* Navigation pills */}
           <motion.div

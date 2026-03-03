@@ -4,130 +4,113 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 10 },
+  initial: { opacity: 0, y: 12 },
   animate: { opacity: 1, y: 0 },
 };
 
-const tags = ["Jazz-Funk", "Soul", "Hampton, VA", "Keys", "Composer"];
-
 export function ArtistModal() {
   return (
-    <div className="space-y-8">
-      {/* Full-width hero album art — edge to edge */}
+    <div className="space-y-6">
+      {/* Giant name — Wrapped-style hero text */}
       <motion.div
-        className="relative -mx-6 -mt-5 aspect-[16/10] overflow-hidden"
+        className="-mx-6 -mt-5 px-6 pt-6 pb-5 bg-gradient-to-b from-gold/[0.08] to-transparent"
         {...fadeUp}
-        transition={{ delay: 0.05 }}
+        transition={{ delay: 0.05, duration: 0.5 }}
       >
-        <Image
-          src="/images/the-sisters-album.jpg"
-          alt="The Sisters album art"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-warm-dark via-warm-dark/20 to-transparent" />
-        {/* Album title overlay */}
-        <div className="absolute bottom-4 left-6 right-6">
-          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-gold font-sans font-medium mb-1">
-            The Album
-          </p>
-          <p className="font-serif text-2xl font-bold text-cream-light italic">
-            The Sisters
-          </p>
-        </div>
+        <p className="text-[0.6rem] tracking-[0.35em] uppercase text-gold/70 font-sans font-medium mb-2">
+          The Artist
+        </p>
+        <h2 className="font-serif text-5xl sm:text-6xl font-black text-cream-light leading-[0.9] tracking-tight">
+          Weldon
+          <br />
+          Irvine
+        </h2>
+        <p className="text-lg text-muted font-sans mt-3 font-light">
+          1943 &mdash; 2002
+        </p>
       </motion.div>
 
-      {/* Large Weldon photos — prominent, side by side */}
+      {/* Photos — stacked impact, one big + album art beside it */}
       <motion.div
-        className="grid grid-cols-2 gap-4"
+        className="flex gap-3 items-stretch"
         {...fadeUp}
         transition={{ delay: 0.12 }}
       >
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/20 shadow-lg shadow-gold/5">
+        <div className="relative flex-1 aspect-[3/4] rounded-2xl overflow-hidden border border-gold/15">
           <Image
             src="/images/weldon-color.jpeg"
             alt="Weldon Irvine"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-black/60 via-transparent to-transparent" />
         </div>
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/20 shadow-lg shadow-gold/5">
-          <Image
-            src="/images/weldon-bw.webp"
-            alt="Weldon Irvine"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-warm-black/60 via-transparent to-transparent" />
-        </div>
-      </motion.div>
-
-      {/* Gold accent divider */}
-      <div className="flex items-center gap-3">
-        <div className="w-2 h-2 rounded-full bg-gold/60" />
-        <div className="flex-1 h-px bg-gradient-to-r from-gold/40 via-gold/15 to-transparent" />
-        <div className="w-1 h-1 rounded-full bg-gold/30" />
-      </div>
-
-      {/* Name and years — big and bold */}
-      <motion.div {...fadeUp} transition={{ delay: 0.2 }}>
-        <p className="text-[0.7rem] tracking-[0.3em] uppercase text-gold font-sans font-medium mb-2">
-          The Artist
-        </p>
-        <div className="flex items-baseline justify-between">
-          <h3 className="font-serif text-4xl font-black text-cream-light leading-tight">
-            Weldon Irvine
-          </h3>
-          <span className="text-base text-muted font-sans">1943 &mdash; 2002</span>
+        <div className="flex flex-col gap-3 w-[40%]">
+          <div className="relative flex-1 rounded-2xl overflow-hidden border border-gold/15">
+            <Image
+              src="/images/weldon-bw.webp"
+              alt="Weldon Irvine"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-24 rounded-xl overflow-hidden border border-gold/20">
+            <Image
+              src="/images/the-sisters-album.jpg"
+              alt="The Sisters"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-warm-black/40 flex items-end p-2">
+              <p className="text-[0.55rem] uppercase tracking-widest text-cream/70 font-sans font-medium">
+                The Sisters &middot; 1998
+              </p>
+            </div>
+          </div>
         </div>
       </motion.div>
 
-      {/* Bio — well-spaced, refined typography */}
+      {/* Bold pull quote — Wrapped style big statement */}
       <motion.div
-        className="font-body text-[1rem] leading-[1.85] text-cream/85 space-y-5"
         {...fadeUp}
-        transition={{ delay: 0.3 }}
+        transition={{ delay: 0.2 }}
+      >
+        <p className="font-serif text-2xl sm:text-3xl font-bold text-gold-light leading-snug italic">
+          Nina Simone&apos;s bandleader.
+          <br />
+          <span className="text-cream/60">
+            Co-wrote &ldquo;To Be Young, Gifted and Black.&rdquo;
+          </span>
+        </p>
+      </motion.div>
+
+      {/* Bio — compact, punchy */}
+      <motion.div
+        className="font-body text-[0.95rem] leading-[1.75] text-cream/80 space-y-3"
+        {...fadeUp}
+        transition={{ delay: 0.28 }}
       >
         <p>
-          Keyboardist, composer, poet, and playwright from Hampton, Virginia
-          &mdash; Weldon Irvine is one of jazz-funk&apos;s most quietly towering
-          figures. He served as Nina Simone&apos;s bandleader and co-wrote
-          &ldquo;To Be Young, Gifted and Black,&rdquo; which became an anthem of
-          the Civil Rights movement.
+          His &apos;70s albums blended jazz, funk, and soul into something
+          entirely his own. A Tribe Called Quest, Mos Def, and Common all
+          studied at Weldon&apos;s feet.
         </p>
         <p>
-          Throughout the 1970s, he released a string of visionary albums on RCA
-          and Strata-East, blending jazz, funk, and soul into something entirely
-          his own. His influence bridged generations: A Tribe Called Quest, Mos
-          Def, Q-Tip, and Common all studied at Weldon&apos;s feet.
-        </p>
-        <p>
-          &ldquo;Morning Sunrise,&rdquo; from his album <em className="text-citrus">The Sisters</em>
-          &mdash; a collection of late-&apos;70s sessions with Don Blackman and a
-          young Marcus Miller &mdash; has been sampled by Jay-Z, Drake, and
-          countless others, ensuring his warmth reverberates well beyond his
-          years.
+          &ldquo;Morning Sunrise&rdquo; from{" "}
+          <em className="text-citrus font-semibold">The Sisters</em> has been
+          sampled by Jay-Z, Drake, and countless others.
         </p>
       </motion.div>
 
-      {/* Gold accent divider */}
-      <div className="flex items-center gap-3">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold/20 to-gold/40" />
-        <div className="w-1.5 h-1.5 rounded-full bg-gold/50" />
-        <div className="flex-1 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent" />
-      </div>
-
-      {/* Tags — polished, with gold accents */}
+      {/* Tags — bold pills */}
       <motion.div
-        className="flex flex-wrap gap-2.5"
+        className="flex flex-wrap gap-2"
         {...fadeUp}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.35 }}
       >
-        {tags.map((tag) => (
+        {["Jazz-Funk", "Soul", "Hampton, VA", "Keys", "Composer"].map((tag) => (
           <span
             key={tag}
-            className="text-[0.7rem] tracking-[0.15em] uppercase px-4 py-2 border border-gold/30 rounded-full text-gold/80 font-sans font-medium bg-gold/5"
+            className="text-[0.65rem] tracking-[0.12em] uppercase px-3.5 py-1.5 border border-gold/30 rounded-full text-gold/80 font-sans font-semibold bg-gold/[0.06]"
           >
             {tag}
           </span>
