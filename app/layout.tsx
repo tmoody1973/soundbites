@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Source_Serif_4, DM_Sans } from "next/font/google";
+import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/the-sisters-album.jpg" />
       </head>
       <body className="bg-warm-black text-cream font-sans overflow-hidden h-dvh">
+        <ServiceWorkerRegistration />
         {children}
       </body>
     </html>
