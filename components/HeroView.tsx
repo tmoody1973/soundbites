@@ -42,6 +42,10 @@ const sections: {
   },
 ];
 
+// Lyrics excerpt for the scrolling marquee
+const lyricsMarquee =
+  "Morning sunrise \u2022 Hello, morning, you look good, good to me \u2022 Kissing the sky, I can feel it move me \u2022 Morning sunrise \u2022 Flowers will bloom in the spring \u2022 I said it\u2019s a beautiful morning sunrise \u2022 ";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
   visible: (i: number) => ({
@@ -58,7 +62,7 @@ const fadeUp = {
 export function HeroView({ onOpenModal }: HeroViewProps) {
   return (
     <div className="relative z-10 h-full flex flex-col px-6 pb-28 pt-6 overflow-hidden">
-      {/* Album art hero background — large, blurred, behind everything */}
+      {/* Album art hero background — large, blurred */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/images/the-sisters-album.jpg"
@@ -72,9 +76,9 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
 
       {/* Content layer */}
       <div className="relative z-10 flex flex-col h-full">
-        {/* Event label with gold line */}
+        {/* Event label */}
         <motion.div
-          className="flex items-center gap-3 mb-5"
+          className="flex items-center gap-3 mb-4"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -87,9 +91,9 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
           <div className="h-px flex-1 bg-gold/20" />
         </motion.div>
 
-        {/* Large album art centrepiece */}
+        {/* Album art + title */}
         <motion.div
-          className="relative w-full aspect-[4/3] max-h-[38vh] rounded-2xl overflow-hidden mb-5 border border-gold/25 shadow-2xl shadow-gold/10"
+          className="relative w-full aspect-[4/3] max-h-[32vh] rounded-2xl overflow-hidden mb-4 border border-gold/25 shadow-2xl shadow-gold/10"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -102,9 +106,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             className="object-cover"
             priority
           />
-          {/* Cinematic gradient overlay on bottom portion */}
           <div className="absolute inset-0 bg-gradient-to-t from-warm-black/80 via-transparent to-transparent" />
-          {/* Title overlay on image */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <motion.h1
               className="font-serif italic text-gold-light text-5xl sm:text-6xl font-black leading-[1.0] mb-1 drop-shadow-lg"
@@ -124,43 +126,98 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               animate="visible"
               custom={3}
             >
-              meets Citrus & Smoke
+              meets Citrus &amp; Smoke
             </motion.p>
           </div>
         </motion.div>
 
-        {/* Credits */}
+        {/* ---- PAIRING INFO: Song + Dish clearly stated ---- */}
         <motion.div
-          className="mb-4 flex items-center gap-4"
+          className="flex items-stretch gap-3 mb-3"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={4}
         >
-          <div>
-            <p className="text-base text-cream/80 font-sans font-medium">
-              Chef Dane Baldwin{" "}
-              <span className="text-gold/60 mx-1.5">&times;</span> DJ Tarik
+          {/* The Song */}
+          <div className="flex-1 bg-warm-dark/70 border border-gold/15 rounded-xl px-4 py-3">
+            <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold font-sans font-medium mb-0.5">
+              The Song
             </p>
-            <p className="text-xs text-muted font-sans mt-0.5">
-              The Diplomat, Milwaukee
+            <p className="font-serif text-cream-light text-sm font-bold leading-tight">
+              Morning Sunrise
+            </p>
+            <p className="text-[0.7rem] text-muted mt-0.5">
+              Weldon Irvine &middot; <em>The Sisters</em>
+            </p>
+          </div>
+          {/* The Dish */}
+          <div className="flex-1 bg-warm-dark/70 border border-gold/15 rounded-xl px-4 py-3">
+            <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold font-sans font-medium mb-0.5">
+              The Dish
+            </p>
+            <p className="font-serif text-cream-light text-sm font-bold leading-tight">
+              Citrus Corn Muffin
+            </p>
+            <p className="text-[0.7rem] text-citrus italic mt-0.5">
+              with Confit Pork Belly
             </p>
           </div>
         </motion.div>
 
-        {/* Divider */}
+        {/* Credits */}
         <motion.div
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center justify-between mb-3"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={5}
         >
-          <div className="w-2 h-2 rounded-full bg-gold/50" />
-          <div className="flex-1 h-px bg-gradient-to-r from-gold/30 via-gold/10 to-transparent" />
+          <div>
+            <p className="text-sm text-cream/70 font-sans">
+              Chef Dane Baldwin{" "}
+              <span className="text-gold/50 mx-1">&times;</span> DJ Tarik
+            </p>
+            <p className="text-[0.65rem] text-muted font-sans mt-0.5">
+              The Diplomat, Milwaukee
+            </p>
+          </div>
         </motion.div>
 
-        {/* 2x2 grid of SectionCards with images */}
+        {/* ---- SCROLLING LYRICS MARQUEE ---- */}
+        <motion.div
+          className="relative overflow-hidden mb-3 py-2"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={6}
+        >
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-warm-black to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-warm-black to-transparent z-10" />
+          {/* Scrolling text — duplicated for seamless loop */}
+          <motion.div
+            className="flex whitespace-nowrap"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+          >
+            <span className="font-body italic text-gold/25 text-lg tracking-wide">
+              {lyricsMarquee}
+            </span>
+            <span className="font-body italic text-gold/25 text-lg tracking-wide">
+              {lyricsMarquee}
+            </span>
+          </motion.div>
+        </motion.div>
+
+        {/* 2x2 grid of SectionCards */}
         <div className="grid grid-cols-2 gap-3 flex-1 min-h-0">
           {sections.map((section, i) => (
             <motion.div
@@ -168,7 +225,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={6 + i}
+              custom={7 + i}
               className="min-h-0"
             >
               <SectionCard
