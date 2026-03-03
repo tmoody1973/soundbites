@@ -39,7 +39,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
     <div className="relative z-10 h-full flex flex-col overflow-hidden">
       {/* ====== SCROLLING LYRICS STRIP ====== */}
       <div
-        className="absolute right-[30%] top-0 bottom-0 w-72 z-[1] overflow-hidden pointer-events-none opacity-[0.3]"
+        className="absolute right-[20%] top-0 bottom-0 w-80 z-[1] overflow-hidden pointer-events-none opacity-[0.3]"
         style={{ transform: "rotate(-8deg)", transformOrigin: "top center" }}
       >
         <div
@@ -50,7 +50,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
           {[...lyricsLines, ...lyricsLines].map((line, i) => (
             <p
               key={i}
-              className="font-serif italic text-cream text-3xl leading-snug whitespace-nowrap"
+              className="font-serif italic text-cream text-2xl leading-snug text-center"
             >
               {line}
             </p>
