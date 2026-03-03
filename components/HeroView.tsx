@@ -156,22 +156,35 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             of the track&apos;s rhythm section.
           </motion.p>
 
-          {/* Chef credit — prominent */}
+          {/* Chef + DJ credits side by side */}
           <motion.div
-            className="mb-5"
+            className="flex gap-8 mb-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
-              The Chef
-            </p>
-            <p className="font-serif text-lg text-cream/80 font-bold">
-              Dane Baldwin
-            </p>
-            <p className="text-sm text-cream/45 font-sans">
-              The Diplomat &middot; Milwaukee
-            </p>
+            <div>
+              <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
+                The Chef
+              </p>
+              <p className="font-serif text-lg text-cream/80 font-bold">
+                Dane Baldwin
+              </p>
+              <p className="text-sm text-cream/45 font-sans">
+                The Diplomat &middot; Milwaukee
+              </p>
+            </div>
+            <div>
+              <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
+                The DJ
+              </p>
+              <p className="font-serif text-lg text-cream/80 font-bold">
+                Tarik Moody
+              </p>
+              <p className="text-sm text-cream/45 font-sans">
+                Radio Milwaukee
+              </p>
+            </div>
           </motion.div>
 
           {/* Navigation pills */}
