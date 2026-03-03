@@ -64,49 +64,50 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
           src="/images/the-sisters-album.jpg"
           alt=""
           fill
-          className="object-cover opacity-15 blur-2xl scale-110"
+          className="object-cover opacity-20 blur-2xl scale-125"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-warm-black/60 via-warm-black/80 to-warm-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-warm-black/40 via-warm-black/70 to-warm-black/95" />
       </div>
 
       {/* Content layer */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Event label with gold line */}
         <motion.div
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-3 mb-5"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={0}
         >
-          <div className="h-px w-8 bg-gold/50" />
-          <span className="text-[0.65rem] uppercase tracking-[0.25em] text-gold font-sans font-medium">
+          <div className="h-px w-10 bg-gold/60" />
+          <span className="text-[0.7rem] uppercase tracking-[0.3em] text-gold font-sans font-medium">
             Sound & Flavor Pairing
           </span>
+          <div className="h-px flex-1 bg-gold/20" />
         </motion.div>
 
-        {/* Album art thumbnail + title row */}
-        <div className="flex items-start gap-5 mb-4">
-          <motion.div
-            className="w-28 h-28 sm:w-32 sm:h-32 rounded-lg overflow-hidden border border-gold/20 shadow-xl shadow-gold/5 shrink-0"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-          >
-            <Image
-              src="/images/the-sisters-album.jpg"
-              alt="The Sisters — Weldon Irvine"
-              width={128}
-              height={128}
-              className="object-cover w-full h-full"
-              priority
-            />
-          </motion.div>
-          <div className="pt-1">
+        {/* Large album art centrepiece */}
+        <motion.div
+          className="relative w-full aspect-[4/3] max-h-[38vh] rounded-2xl overflow-hidden mb-5 border border-gold/25 shadow-2xl shadow-gold/10"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={1}
+        >
+          <Image
+            src="/images/the-sisters-album.jpg"
+            alt="The Sisters — Weldon Irvine"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Cinematic gradient overlay on bottom portion */}
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-black/80 via-transparent to-transparent" />
+          {/* Title overlay on image */}
+          <div className="absolute bottom-0 left-0 right-0 p-5">
             <motion.h1
-              className="font-serif italic text-gold-light text-4xl sm:text-5xl font-black leading-[1.05] mb-1"
+              className="font-serif italic text-gold-light text-5xl sm:text-6xl font-black leading-[1.0] mb-1 drop-shadow-lg"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -117,7 +118,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               Sunrise
             </motion.h1>
             <motion.p
-              className="font-body italic text-citrus text-base sm:text-lg"
+              className="font-body italic text-citrus text-lg sm:text-xl drop-shadow-md"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -126,23 +127,25 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               meets Citrus & Smoke
             </motion.p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Credits */}
         <motion.div
-          className="mb-4"
+          className="mb-4 flex items-center gap-4"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={4}
         >
-          <p className="text-sm text-cream/70 font-sans">
-            Chef Dane Baldwin{" "}
-            <span className="text-gold/50 mx-1">&times;</span> DJ Tarik
-          </p>
-          <p className="text-xs text-muted font-sans mt-0.5">
-            The Diplomat, Milwaukee
-          </p>
+          <div>
+            <p className="text-base text-cream/80 font-sans font-medium">
+              Chef Dane Baldwin{" "}
+              <span className="text-gold/60 mx-1.5">&times;</span> DJ Tarik
+            </p>
+            <p className="text-xs text-muted font-sans mt-0.5">
+              The Diplomat, Milwaukee
+            </p>
+          </div>
         </motion.div>
 
         {/* Divider */}
@@ -153,8 +156,8 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
           animate="visible"
           custom={5}
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-gold/40" />
-          <div className="flex-1 h-px bg-gradient-to-r from-gold/20 to-transparent" />
+          <div className="w-2 h-2 rounded-full bg-gold/50" />
+          <div className="flex-1 h-px bg-gradient-to-r from-gold/30 via-gold/10 to-transparent" />
         </motion.div>
 
         {/* 2x2 grid of SectionCards with images */}

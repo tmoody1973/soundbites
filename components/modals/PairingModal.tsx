@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 
 const fadeUp = {
   initial: { opacity: 0, y: 10 },
@@ -9,14 +10,37 @@ const fadeUp = {
 
 export function PairingModal() {
   return (
-    <div className="space-y-6">
-      {/* Pairing text */}
+    <div className="space-y-8">
+      {/* Visual header — album art as blurred banner behind title */}
       <motion.div
-        className="font-body text-[1.05rem] leading-[1.85] text-cream/90 space-y-5"
+        className="relative -mx-6 -mt-5 h-40 overflow-hidden"
+        {...fadeUp}
+        transition={{ delay: 0.05 }}
+      >
+        <Image
+          src="/images/the-sisters-album.jpg"
+          alt=""
+          fill
+          className="object-cover blur-md scale-110 opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-warm-dark via-warm-dark/60 to-warm-dark/30" />
+        <div className="absolute bottom-5 left-6 right-6">
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-gold font-sans font-medium mb-1">
+            Sound & Flavor
+          </p>
+          <h3 className="font-serif text-3xl font-black text-cream-light italic leading-tight">
+            The Pairing
+          </h3>
+        </div>
+      </motion.div>
+
+      {/* Pairing text — dramatic drop cap */}
+      <motion.div
+        className="font-body text-[1.05rem] leading-[1.9] text-cream/90 space-y-6"
         {...fadeUp}
         transition={{ delay: 0.1 }}
       >
-        <p className="first-letter:font-serif first-letter:text-[3.6rem] first-letter:float-left first-letter:leading-[0.75] first-letter:mr-2 first-letter:mt-1 first-letter:text-gold-light first-letter:font-bold">
+        <p className="first-letter:font-serif first-letter:text-[4.5rem] first-letter:float-left first-letter:leading-[0.7] first-letter:mr-3 first-letter:mt-1.5 first-letter:text-gold first-letter:font-black first-letter:drop-shadow-lg">
           Weldon Irvine&apos;s &ldquo;Morning Sunrise&rdquo; opens like the
           first light through a kitchen window &mdash; Don Blackman&apos;s
           honeyed vocals floating over warm Rhodes chords and an unhurried groove
@@ -44,13 +68,14 @@ export function PairingModal() {
         </p>
       </motion.div>
 
-      {/* Divider */}
-      <div className="flex items-center gap-3">
-        <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-        <div className="flex-1 h-px bg-gradient-to-r from-gold/30 to-transparent" />
+      {/* Gold accent divider */}
+      <div className="flex items-center gap-3 py-1">
+        <div className="w-2 h-2 rounded-full bg-gold/60" />
+        <div className="flex-1 h-px bg-gradient-to-r from-gold/40 via-gold/15 to-transparent" />
+        <div className="w-1 h-1 rounded-full bg-gold/30" />
       </div>
 
-      {/* Track details grid */}
+      {/* Track details grid — gold borders and accents */}
       <motion.div
         className="grid grid-cols-2 gap-5"
         {...fadeUp}
@@ -74,14 +99,17 @@ export function PairingModal() {
             sub: "with Confit Pork Belly",
           },
         ].map((item) => (
-          <div key={item.label}>
-            <p className="text-[0.6rem] tracking-[0.25em] uppercase text-gold font-medium mb-1">
+          <div
+            key={item.label}
+            className="border-t-2 border-gold/30 pt-4 pb-2"
+          >
+            <p className="text-[0.6rem] tracking-[0.3em] uppercase text-gold font-sans font-medium mb-1.5">
               {item.label}
             </p>
-            <p className="font-serif text-base text-cream-light">
+            <p className="font-serif text-lg text-cream-light font-semibold leading-snug">
               {item.value}
             </p>
-            <p className="text-xs text-muted mt-0.5">{item.sub}</p>
+            <p className="text-xs text-muted mt-1 font-sans">{item.sub}</p>
           </div>
         ))}
       </motion.div>
