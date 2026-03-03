@@ -78,7 +78,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
 
         {/* TOP ROW: Event label */}
         <motion.div
-          className="mb-auto"
+          className="mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -91,22 +91,22 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
           </p>
         </motion.div>
 
-        {/* BOTTOM STACK: All key info */}
-        <div className="mt-auto space-y-0">
+        {/* MAIN CONTENT STACK */}
+        <div className="flex-1 flex flex-col justify-center space-y-0">
 
-          {/* Album art above song title */}
+          {/* Album art above song title — large */}
           <motion.div
             className="mb-3"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.25, duration: 0.5 }}
           >
-            <div className="w-20 h-20 rounded-xl overflow-hidden border border-gold/25 shadow-xl shadow-gold/10">
+            <div className="w-40 h-40 rounded-2xl overflow-hidden border border-gold/25 shadow-xl shadow-gold/10">
               <Image
                 src="/images/the-sisters-album.jpg"
                 alt="The Sisters"
-                width={80}
-                height={80}
+                width={160}
+                height={160}
                 className="object-cover w-full h-full"
               />
             </div>
