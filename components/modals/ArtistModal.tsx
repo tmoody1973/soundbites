@@ -10,10 +10,10 @@ const fadeUp = {
 
 export function ArtistModal() {
   return (
-    <div className="space-y-6">
-      {/* Giant name — Wrapped-style hero text */}
+    <div className="space-y-5">
+      {/* Giant name header — Wrapped-style */}
       <motion.div
-        className="-mx-6 -mt-5 px-6 pt-6 pb-5 bg-gradient-to-b from-gold/[0.08] to-transparent"
+        className="-mx-6 -mt-5 px-6 pt-6 pb-4 bg-gradient-to-b from-gold/[0.08] to-transparent"
         {...fadeUp}
         transition={{ delay: 0.05, duration: 0.5 }}
       >
@@ -25,18 +25,18 @@ export function ArtistModal() {
           <br />
           Irvine
         </h2>
-        <p className="text-lg text-muted font-sans mt-3 font-light">
+        <p className="text-base text-muted font-sans mt-2 font-light">
           1943 &mdash; 2002
         </p>
       </motion.div>
 
-      {/* Photos — stacked impact, one big + album art beside it */}
+      {/* 3-column grid: portrait, B&W, album art — compact and balanced */}
       <motion.div
-        className="flex gap-3 items-stretch"
+        className="grid grid-cols-3 gap-2.5"
         {...fadeUp}
         transition={{ delay: 0.12 }}
       >
-        <div className="relative flex-1 aspect-[3/4] rounded-2xl overflow-hidden border border-gold/15">
+        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/15">
           <Image
             src="/images/weldon-color.jpeg"
             alt="Weldon Irvine"
@@ -44,77 +44,79 @@ export function ArtistModal() {
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col gap-3 w-[40%]">
-          <div className="relative flex-1 rounded-2xl overflow-hidden border border-gold/15">
-            <Image
-              src="/images/weldon-bw.webp"
-              alt="Weldon Irvine"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="relative h-24 rounded-xl overflow-hidden border border-gold/20">
-            <Image
-              src="/images/the-sisters-album.jpg"
-              alt="The Sisters"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-warm-black/40 flex items-end p-2">
-              <p className="text-[0.55rem] uppercase tracking-widest text-cream/70 font-sans font-medium">
-                The Sisters &middot; 1998
-              </p>
-            </div>
+        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/15">
+          <Image
+            src="/images/weldon-bw.webp"
+            alt="Weldon Irvine"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-gold/20">
+          <Image
+            src="/images/the-sisters-album.jpg"
+            alt="The Sisters"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-warm-black/60 to-transparent" />
+          <div className="absolute bottom-2 left-2 right-2">
+            <p className="text-[0.5rem] uppercase tracking-widest text-cream/80 font-sans font-medium leading-tight">
+              The Sisters
+            </p>
+            <p className="text-[0.45rem] text-cream/50 font-sans">1979</p>
           </div>
         </div>
       </motion.div>
 
-      {/* Bold pull quote — Wrapped style big statement */}
-      <motion.div
+      {/* Bold pull quote */}
+      <motion.p
+        className="font-serif text-xl sm:text-2xl font-bold text-gold-light leading-snug italic"
         {...fadeUp}
         transition={{ delay: 0.2 }}
       >
-        <p className="font-serif text-2xl sm:text-3xl font-bold text-gold-light leading-snug italic">
-          Nina Simone&apos;s bandleader.
-          <br />
-          <span className="text-cream/60">
-            Co-wrote &ldquo;To Be Young, Gifted and Black.&rdquo;
-          </span>
-        </p>
-      </motion.div>
+        Nina Simone&apos;s bandleader.
+        <br />
+        <span className="text-cream/50">
+          Co-wrote &ldquo;To Be Young, Gifted and Black.&rdquo;
+        </span>
+      </motion.p>
 
-      {/* Bio — compact, punchy */}
+      {/* Bio — concise, two paragraphs */}
       <motion.div
         className="font-body text-[0.95rem] leading-[1.75] text-cream/80 space-y-3"
         {...fadeUp}
         transition={{ delay: 0.28 }}
       >
         <p>
-          His &apos;70s albums blended jazz, funk, and soul into something
-          entirely his own. A Tribe Called Quest, Mos Def, and Common all
-          studied at Weldon&apos;s feet.
+          His &apos;70s albums on RCA and Strata-East blended jazz, funk, and
+          soul into something entirely his own. A Tribe Called Quest, Mos Def,
+          and Common all studied at Weldon&apos;s feet.
         </p>
         <p>
           &ldquo;Morning Sunrise&rdquo; from{" "}
           <em className="text-citrus font-semibold">The Sisters</em> has been
-          sampled by Jay-Z, Drake, and countless others.
+          sampled by Jay-Z, Drake, and countless others &mdash; ensuring his
+          warmth reverberates well beyond his years.
         </p>
       </motion.div>
 
-      {/* Tags — bold pills */}
+      {/* Tags row */}
       <motion.div
         className="flex flex-wrap gap-2"
         {...fadeUp}
         transition={{ delay: 0.35 }}
       >
-        {["Jazz-Funk", "Soul", "Hampton, VA", "Keys", "Composer"].map((tag) => (
-          <span
-            key={tag}
-            className="text-[0.65rem] tracking-[0.12em] uppercase px-3.5 py-1.5 border border-gold/30 rounded-full text-gold/80 font-sans font-semibold bg-gold/[0.06]"
-          >
-            {tag}
-          </span>
-        ))}
+        {["Jazz-Funk", "Soul", "Hampton, VA", "Keys", "Composer"].map(
+          (tag) => (
+            <span
+              key={tag}
+              className="text-[0.6rem] tracking-[0.12em] uppercase px-3 py-1.5 border border-gold/25 rounded-full text-gold/70 font-sans font-semibold bg-gold/[0.05]"
+            >
+              {tag}
+            </span>
+          )
+        )}
       </motion.div>
     </div>
   );

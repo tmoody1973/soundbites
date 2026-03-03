@@ -47,7 +47,7 @@ export function PairingModal() {
             Weldon Irvine
           </p>
           <p className="text-xs text-muted font-sans">
-            The Sisters &middot; 1998 &middot; 3:13
+            The Sisters &middot; 1979 &middot; 3:13
           </p>
         </div>
       </motion.div>

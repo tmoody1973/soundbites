@@ -39,18 +39,18 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
     <div className="relative z-10 h-full flex flex-col overflow-hidden">
       {/* ====== SCROLLING LYRICS STRIP ====== */}
       <div
-        className="absolute right-4 top-0 bottom-0 w-48 z-[1] overflow-hidden pointer-events-none opacity-[0.07]"
+        className="absolute right-4 top-0 bottom-0 w-56 z-[1] overflow-hidden pointer-events-none opacity-[0.12]"
         style={{ transform: "rotate(-8deg)", transformOrigin: "top right" }}
       >
         <div
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-7"
           style={{ animation: "scroll-lyrics 40s linear infinite" }}
         >
           {/* Duplicate lyrics twice for seamless loop */}
           {[...lyricsLines, ...lyricsLines].map((line, i) => (
             <p
               key={i}
-              className="font-serif italic text-cream text-lg leading-snug whitespace-nowrap"
+              className="font-serif italic text-cream text-xl leading-snug whitespace-nowrap"
             >
               {line}
             </p>
@@ -120,7 +120,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               Morning Sunrise
             </h2>
             <p className="text-base text-cream/50 font-sans mt-2">
-              Weldon Irvine &middot; <em className="text-cream/40">The Sisters</em> &middot; 1998
+              Weldon Irvine &middot; <em className="text-cream/40">The Sisters</em> &middot; 1979
             </p>
           </motion.div>
 
