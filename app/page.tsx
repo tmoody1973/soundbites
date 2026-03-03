@@ -6,6 +6,10 @@ import { Atmosphere } from "@/components/Atmosphere";
 import { HeroView } from "@/components/HeroView";
 import { ExpandableModal } from "@/components/ExpandableModal";
 import { AudioPlayer } from "@/components/AudioPlayer";
+import { ArtistModal } from "@/components/modals/ArtistModal";
+import { LyricsModal } from "@/components/modals/LyricsModal";
+import { PairingModal } from "@/components/modals/PairingModal";
+import { WhyModal } from "@/components/modals/WhyModal";
 
 type ModalType = "artist" | "lyrics" | "pairing" | "why" | null;
 
@@ -54,9 +58,10 @@ export default function Home() {
             title={modalTitles[activeModal]}
             onClose={() => setActiveModal(null)}
           >
-            <p className="text-cream/70 font-body">
-              Content for {activeModal} modal coming soon.
-            </p>
+            {activeModal === "artist" && <ArtistModal />}
+            {activeModal === "lyrics" && <LyricsModal />}
+            {activeModal === "pairing" && <PairingModal />}
+            {activeModal === "why" && <WhyModal />}
           </ExpandableModal>
         )}
       </AnimatePresence>
