@@ -149,22 +149,9 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             </h1>
           </motion.div>
 
-          {/* Pairing description — editorial italic */}
-          <motion.p
-            className="font-body italic text-cream/50 text-sm leading-relaxed mb-5 max-w-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-          >
-            The citrus corn muffin brings brightness and grain &mdash; a soft, golden sweetness
-            lifted by notes of orange and lemon zest. Then the confit pork belly arrives: rich,
-            deeply rendered, falling apart with a smoky tenderness that mirrors the low-end warmth
-            of the track&apos;s rhythm section.
-          </motion.p>
-
           {/* Chef + DJ credits side by side */}
           <motion.div
-            className="flex gap-8 mb-5"
+            className="flex gap-8 mt-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}

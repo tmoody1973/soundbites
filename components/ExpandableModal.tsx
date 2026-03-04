@@ -34,7 +34,7 @@ export function ExpandableModal({
     <>
       {/* Backdrop overlay */}
       <motion.div
-        className="fixed inset-0 z-40 bg-warm-black/60 backdrop-blur-sm"
+        className="fixed inset-0 z-[60] bg-warm-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -43,10 +43,10 @@ export function ExpandableModal({
       />
 
       {/* Expanded card panel */}
-      <div ref={constraintsRef} className="fixed inset-0 z-50 pointer-events-none">
+      <div ref={constraintsRef} className="fixed inset-0 z-[70] pointer-events-none">
         <motion.div
           layoutId={layoutId}
-          className="absolute inset-2 top-4 rounded-3xl bg-warm-dark/95 backdrop-blur-xl
+          className="absolute inset-2 top-3 rounded-3xl bg-warm-dark/95 backdrop-blur-xl
             border border-gold/15 shadow-2xl pointer-events-auto
             flex flex-col overflow-hidden"
           transition={springTransition}
@@ -67,9 +67,9 @@ export function ExpandableModal({
             </h2>
             <button
               onClick={onClose}
-              className="w-9 h-9 flex items-center justify-center rounded-full
-                bg-cream/10 text-cream/60 hover:bg-cream/20 hover:text-cream
-                transition-colors duration-200 text-lg leading-none cursor-pointer"
+              className="w-11 h-11 flex items-center justify-center rounded-full
+                bg-cream/15 text-cream/80 hover:bg-cream/25 hover:text-cream
+                transition-colors duration-200 text-2xl leading-none cursor-pointer"
               aria-label="Close"
             >
               &times;
