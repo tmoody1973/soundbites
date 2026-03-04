@@ -157,10 +157,10 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
                 <p className="text-[0.5rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
                   The Chef
                 </p>
-                <p className="font-serif text-base text-cream/80 font-bold leading-tight">
+                <p className="font-serif text-xl text-cream/80 font-bold leading-tight">
                   Dane Baldwin
                 </p>
-                <p className="text-xs text-cream/45 font-sans">
+                <p className="text-sm text-cream/45 font-sans">
                   The Diplomat
                 </p>
               </div>
@@ -168,10 +168,10 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
                 <p className="text-[0.5rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
                   The DJ
                 </p>
-                <p className="font-serif text-base text-cream/80 font-bold leading-tight">
+                <p className="font-serif text-xl text-cream/80 font-bold leading-tight">
                   Tarik Moody
                 </p>
-                <p className="text-xs text-cream/45 font-sans">
+                <p className="text-sm text-cream/45 font-sans">
                   Radio Milwaukee
                 </p>
               </div>
@@ -180,7 +180,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
 
           {/* Pairing description */}
           <motion.p
-            className="font-body italic text-cream/50 text-sm leading-relaxed mt-3 max-w-lg"
+            className="font-body italic text-cream/50 text-base leading-relaxed mt-3 max-w-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
@@ -196,7 +196,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
 
       {/* ====== FIXED TOP NAV — under player ====== */}
       <motion.div
-        className="fixed top-[73px] inset-x-0 z-40"
+        className="fixed top-[85px] inset-x-0 z-40"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.5 }}
