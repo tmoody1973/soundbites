@@ -61,10 +61,10 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       {/* ====== FULL-BLEED ARTIST PHOTO ====== */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/weldon-bw.webp"
+          src="/images/weldon-right.jpg"
           alt="Weldon Irvine"
           fill
-          className="object-cover object-[center_20%]"
+          className="object-cover object-[center_10%]"
           priority
         />
         {/* Cinematic gradient — light at top to show photo, heavy at bottom for text */}
