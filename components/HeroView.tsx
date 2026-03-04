@@ -215,10 +215,12 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               layoutId={`card-${item.key}`}
               onClick={() => onOpenModal(item.key)}
               whileTap={{ scale: 0.95 }}
-              className="px-5 py-3 rounded-full border border-gold/25 bg-warm-black/50 backdrop-blur-md
-                text-[0.75rem] font-sans text-cream/80 tracking-wider uppercase
-                hover:border-gold/50 hover:bg-gold/10 hover:text-cream
-                transition-colors duration-200 cursor-pointer"
+              className="px-5 py-3 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-md
+                text-[0.75rem] font-sans text-gold font-semibold tracking-wider uppercase
+                shadow-[0_0_12px_rgba(212,168,83,0.15)]
+                hover:bg-gold/20 hover:border-gold/60 hover:text-gold-light
+                hover:shadow-[0_0_20px_rgba(212,168,83,0.25)]
+                transition-all duration-200 cursor-pointer"
             >
               {item.label}
             </motion.button>
