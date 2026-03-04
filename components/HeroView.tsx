@@ -74,7 +74,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       </div>
 
       {/* ====== CONTENT ====== */}
-      <div className="relative z-10 flex flex-col h-full px-7 pt-24 pb-20">
+      <div className="relative z-10 flex flex-col h-full px-7 pt-36 pb-6">
 
         {/* TOP ROW: Event label */}
         <motion.div
@@ -196,12 +196,12 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
         </div>
       </div>
 
-      {/* ====== FIXED BOTTOM NAV ====== */}
+      {/* ====== FIXED TOP NAV — under player ====== */}
       <motion.div
-        className="fixed bottom-0 inset-x-0 z-40 bg-warm-dark/90 backdrop-blur-xl border-t border-gold/10"
-        initial={{ y: "100%" }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.9, type: "spring", damping: 25, stiffness: 200 }}
+        className="fixed top-[73px] inset-x-0 z-40 bg-warm-dark/80 backdrop-blur-xl border-b border-gold/10"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.4, duration: 0.5 }}
       >
         <div className="flex justify-center gap-2 px-4 py-3">
           {(
