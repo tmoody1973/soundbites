@@ -74,11 +74,11 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       </div>
 
       {/* ====== CONTENT ====== */}
-      <div className="relative z-10 flex flex-col h-full px-7 pt-36 pb-6">
+      <div className="relative z-10 flex flex-col h-full px-7 pt-24 pb-6">
 
         {/* TOP ROW: Event label */}
         <motion.div
-          className="mb-6"
+          className="mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -92,7 +92,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
         </motion.div>
 
         {/* MAIN CONTENT STACK */}
-        <div className="flex-1 flex flex-col justify-center space-y-0">
+        <div className="flex-1 flex flex-col justify-start space-y-0">
 
           {/* Album art above song title — large */}
           <motion.div
@@ -177,6 +177,19 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
               </div>
             </div>
           </motion.div>
+
+          {/* Pairing description */}
+          <motion.p
+            className="font-body italic text-cream/50 text-sm leading-relaxed mt-3 max-w-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+          >
+            The citrus corn muffin brings brightness and grain &mdash; a soft, golden sweetness
+            lifted by notes of orange and lemon zest. Then the confit pork belly arrives: rich,
+            deeply rendered, falling apart with a smoky tenderness that mirrors the low-end warmth
+            of the track&apos;s rhythm section.
+          </motion.p>
 
         </div>
       </div>
