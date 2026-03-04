@@ -22,9 +22,30 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Soundbites — Morning Sunrise × Citrus & Smoke",
+  title: "Soundbites — Morning Sunrise × Citrus Corn Muffin",
   description:
-    "A sound & flavor pairing: Weldon Irvine meets Chef Dane Baldwin at Radio Milwaukee's Soundbites.",
+    "A sound & flavor pairing: Weldon Irvine's Morning Sunrise meets Chef Dane Baldwin's Citrus Corn Muffin with Confit Pork Belly. Radio Milwaukee Soundbites 2026.",
+  openGraph: {
+    title: "Soundbites — Morning Sunrise × Citrus Corn Muffin",
+    description:
+      "DJ Tarik Moody × Chef Dane Baldwin. A sound & flavor pairing at Radio Milwaukee's Soundbites 2026.",
+    images: [
+      {
+        url: "/images/og-card.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Soundbites — Morning Sunrise by Weldon Irvine paired with Citrus Corn Muffin",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Soundbites — Morning Sunrise × Citrus Corn Muffin",
+    description:
+      "DJ Tarik Moody × Chef Dane Baldwin. A sound & flavor pairing at Radio Milwaukee's Soundbites 2026.",
+    images: ["/images/og-card.jpg"],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
