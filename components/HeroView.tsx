@@ -130,53 +130,51 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             </p>
           </motion.div>
 
-          {/* DISH NAME — THE HERO TEXT */}
+          {/* DISH + CHEF/DJ — side by side */}
           <motion.div
-            className="mb-4"
+            className="flex items-start justify-between gap-6"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
           >
-            <p className="text-[0.6rem] uppercase tracking-[0.25em] text-gold font-sans font-medium mb-2">
-              Paired With
-            </p>
-            <h1 className="font-serif text-cream-light text-3xl sm:text-4xl font-black leading-[1.05]">
-              Citrus Corn Muffin
-              <br />
-              <span className="text-citrus italic font-bold text-2xl sm:text-3xl">
-                with Confit Pork Belly
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* Chef + DJ credits side by side */}
-          <motion.div
-            className="flex gap-8 mt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
+            {/* Left: dish name */}
             <div>
-              <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
-                The Chef
+              <p className="text-[0.6rem] uppercase tracking-[0.25em] text-gold font-sans font-medium mb-2">
+                Paired With
               </p>
-              <p className="font-serif text-lg text-cream/80 font-bold">
-                Dane Baldwin
-              </p>
-              <p className="text-sm text-cream/45 font-sans">
-                The Diplomat &middot; Milwaukee
-              </p>
+              <h1 className="font-serif text-cream-light text-3xl sm:text-4xl font-black leading-[1.05]">
+                Citrus Corn Muffin
+                <br />
+                <span className="text-citrus italic font-bold text-2xl sm:text-3xl">
+                  with Confit Pork Belly
+                </span>
+              </h1>
             </div>
-            <div>
-              <p className="text-[0.55rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
-                The DJ
-              </p>
-              <p className="font-serif text-lg text-cream/80 font-bold">
-                Tarik Moody
-              </p>
-              <p className="text-sm text-cream/45 font-sans">
-                Radio Milwaukee
-              </p>
+
+            {/* Right: chef + DJ stacked */}
+            <div className="flex-shrink-0 space-y-3 pt-1">
+              <div>
+                <p className="text-[0.5rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
+                  The Chef
+                </p>
+                <p className="font-serif text-base text-cream/80 font-bold leading-tight">
+                  Dane Baldwin
+                </p>
+                <p className="text-xs text-cream/45 font-sans">
+                  The Diplomat
+                </p>
+              </div>
+              <div>
+                <p className="text-[0.5rem] uppercase tracking-[0.25em] text-gold/60 font-sans font-medium mb-0.5">
+                  The DJ
+                </p>
+                <p className="font-serif text-base text-cream/80 font-bold leading-tight">
+                  Tarik Moody
+                </p>
+                <p className="text-xs text-cream/45 font-sans">
+                  Radio Milwaukee
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -185,7 +183,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
 
       {/* ====== FIXED TOP NAV — under player ====== */}
       <motion.div
-        className="fixed top-[73px] inset-x-0 z-40 bg-warm-dark/80 backdrop-blur-xl border-b border-gold/10"
+        className="fixed top-[73px] inset-x-0 z-40"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.5 }}
