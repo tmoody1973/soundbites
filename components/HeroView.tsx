@@ -125,8 +125,8 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             <h2 className="font-serif italic text-gold-light text-5xl sm:text-6xl font-black leading-[0.92] drop-shadow-lg">
               Morning Sunrise
             </h2>
-            <p className="text-base text-cream/50 font-sans mt-2">
-              Weldon Irvine &middot; <em className="text-cream/40">The Sisters</em> &middot; 1979
+            <p className="text-lg text-cream font-sans font-bold mt-2">
+              Weldon Irvine &middot; <em>The Sisters</em> &middot; 1979
             </p>
           </motion.div>
 
