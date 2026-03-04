@@ -74,7 +74,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       </div>
 
       {/* ====== CONTENT ====== */}
-      <div className="relative z-10 flex flex-col h-full px-7 pt-24 pb-6">
+      <div className="relative z-10 flex flex-col h-full px-7 pt-24 pb-20">
 
         {/* TOP ROW: Event label */}
         <motion.div
@@ -193,37 +193,40 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
             </div>
           </motion.div>
 
-          {/* Navigation pills */}
-          <motion.div
-            className="flex gap-2 flex-wrap"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-          >
-            {(
-              [
-                { key: "artist" as ModalType, label: "The Artist" },
-                { key: "lyrics" as ModalType, label: "Lyrics" },
-                { key: "pairing" as ModalType, label: "The Story" },
-                { key: "why" as ModalType, label: "Why It Works" },
-              ]
-            ).map((item) => (
-              <motion.button
-                key={item.key}
-                layoutId={`card-${item.key}`}
-                onClick={() => onOpenModal(item.key)}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-2.5 rounded-full border border-gold/25 bg-warm-black/50 backdrop-blur-md
-                  text-[0.7rem] font-sans text-cream/70 tracking-wider uppercase
-                  hover:border-gold/50 hover:bg-gold/10 hover:text-cream
-                  transition-colors duration-200 cursor-pointer"
-              >
-                {item.label}
-              </motion.button>
-            ))}
-          </motion.div>
         </div>
       </div>
+
+      {/* ====== FIXED BOTTOM NAV ====== */}
+      <motion.div
+        className="fixed bottom-0 inset-x-0 z-40 bg-warm-dark/90 backdrop-blur-xl border-t border-gold/10"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.9, type: "spring", damping: 25, stiffness: 200 }}
+      >
+        <div className="flex justify-center gap-2 px-4 py-3">
+          {(
+            [
+              { key: "artist" as ModalType, label: "The Artist" },
+              { key: "lyrics" as ModalType, label: "Lyrics" },
+              { key: "pairing" as ModalType, label: "The Story" },
+              { key: "why" as ModalType, label: "Why It Works" },
+            ]
+          ).map((item) => (
+            <motion.button
+              key={item.key}
+              layoutId={`card-${item.key}`}
+              onClick={() => onOpenModal(item.key)}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-3 rounded-full border border-gold/25 bg-warm-black/50 backdrop-blur-md
+                text-[0.75rem] font-sans text-cream/80 tracking-wider uppercase
+                hover:border-gold/50 hover:bg-gold/10 hover:text-cream
+                transition-colors duration-200 cursor-pointer"
+            >
+              {item.label}
+            </motion.button>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }
