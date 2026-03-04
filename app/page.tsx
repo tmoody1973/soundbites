@@ -10,6 +10,7 @@ import { ArtistModal } from "@/components/modals/ArtistModal";
 import { LyricsModal } from "@/components/modals/LyricsModal";
 import { PairingModal } from "@/components/modals/PairingModal";
 import { WhyModal } from "@/components/modals/WhyModal";
+import { QRCode } from "@/components/QRCode";
 
 type ModalType = "artist" | "lyrics" | "pairing" | "why" | null;
 
@@ -66,6 +67,7 @@ export default function Home() {
         )}
       </AnimatePresence>
       <AudioPlayer />
+      <QRCode />
     </main>
   );
 }

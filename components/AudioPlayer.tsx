@@ -25,26 +25,11 @@ export function AudioPlayer() {
 
   return (
     <motion.div
-      className="fixed bottom-0 inset-x-0 z-50 bg-warm-dark/95 backdrop-blur-xl border-t border-gold/10"
-      initial={{ y: "100%" }}
+      className="fixed top-0 inset-x-0 z-50 bg-warm-dark/95 backdrop-blur-xl border-b border-gold/10"
+      initial={{ y: "-100%" }}
       animate={{ y: 0 }}
       transition={{ delay: 1.2, type: "spring", damping: 25, stiffness: 200 }}
     >
-      {/* Progress bar — taller for easier tapping */}
-      <div
-        className="h-1 bg-gold/20 cursor-pointer"
-        onClick={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const pct = (e.clientX - rect.left) / rect.width;
-          seek(pct * duration);
-        }}
-      >
-        <div
-          className="h-full bg-gold transition-[width] duration-200"
-          style={{ width: `${progress * 100}%` }}
-        />
-      </div>
-
       <div className="flex items-center gap-4 px-5 py-3">
         {/* Play/Pause — large */}
         <button
@@ -96,6 +81,21 @@ export function AudioPlayer() {
           onChange={(e) => changeVolume(parseFloat(e.target.value))}
           className="w-24 h-1.5 accent-gold shrink-0"
           aria-label="Volume"
+        />
+      </div>
+
+      {/* Progress bar at bottom of player */}
+      <div
+        className="h-1 bg-gold/20 cursor-pointer"
+        onClick={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const pct = (e.clientX - rect.left) / rect.width;
+          seek(pct * duration);
+        }}
+      >
+        <div
+          className="h-full bg-gold transition-[width] duration-200"
+          style={{ width: `${progress * 100}%` }}
         />
       </div>
     </motion.div>

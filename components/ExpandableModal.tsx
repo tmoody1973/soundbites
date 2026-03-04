@@ -80,7 +80,7 @@ export function ExpandableModal({
           <div className="h-px bg-gold/10 mx-6" />
 
           {/* Scrollable content */}
-          <div className="flex-1 overflow-y-auto px-6 py-5 pb-28">
+          <div className="flex-1 overflow-y-auto px-6 py-5 pb-8">
             {children}
           </div>
         </motion.div>

@@ -74,7 +74,7 @@ export function HeroView({ onOpenModal }: HeroViewProps) {
       </div>
 
       {/* ====== CONTENT ====== */}
-      <div className="relative z-10 flex flex-col h-full px-7 pt-5 pb-28">
+      <div className="relative z-10 flex flex-col h-full px-7 pt-24 pb-6">
 
         {/* TOP ROW: Event label */}
         <motion.div
